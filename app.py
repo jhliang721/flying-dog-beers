@@ -5,16 +5,16 @@ import plotly.graph_objs as go
 
 ########### Define your variables
 beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
-ibu_values=[35, 60, 85, 75]
+ibu_values=[20, 40, 60, 80]
 abv_values=[5.4, 7.1, 9.2, 4.3]
-color1='lightblue'
-color2='darkgreen'
+color1='purple'
+color2='gray'
 mytitle='Beer Comparison'
 tabtitle='beer!'
 myheading='Flying Dog Beers'
 label1='IBU'
 label2='ABV'
-githublink='https://github.com/austinlasseter/flying-dog-beers'
+githublink='https://github.com/garywu007/flying-dog-beers'
 sourceurl='https://www.flyingdog.com/beers/'
 
 ########### Set up the chart
