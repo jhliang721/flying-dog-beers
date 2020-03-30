@@ -1,9 +1,14 @@
 import sys
+from myCode import *
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 
+##myCode.py
+question()
+
+####end##
 
 ########### Define your variables
 beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
@@ -18,12 +23,6 @@ label1='IBU'
 label2='ABV'
 githublink='https://github.com/garywu007/flying-dog-beers'
 sourceurl='https://www.flyingdog.com/beers/'
-
-###
-print(ibu_values)
-print(label1)
-print("--print end--")
-###
 
 ########### Set up the chart
 bitterness = go.Bar(
