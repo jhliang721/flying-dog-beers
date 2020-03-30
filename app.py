@@ -22,7 +22,7 @@ sourceurl='https://www.flyingdog.com/beers/'
 ###
 print(ibu_values)
 print(label1)
-sys.stdout.flush()
+print("--print end--")
 ###
 
 ########### Set up the chart
