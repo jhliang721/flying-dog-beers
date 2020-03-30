@@ -17,6 +17,11 @@ label2='ABV'
 githublink='https://github.com/garywu007/flying-dog-beers'
 sourceurl='https://www.flyingdog.com/beers/'
 
+###
+print(ibu_values)
+print(label1)
+###
+
 ########### Set up the chart
 bitterness = go.Bar(
     x=beers,
