@@ -16,5 +16,5 @@ for i in range(1,10):
     articles.extend( [rec['mblog'] for rec in jd['data']['cards'] if rec.get('mblog')] )
 df = pandas.DataFrame(articles)
 print(len(df))
-df.to_excel(r'caroltest.xlsx',index=False)
+df.to_csv(r'caroltest.csv',index=False)
 print("done for the carol testing!!!!")
