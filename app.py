@@ -19,10 +19,10 @@ def hello_world():
     articles.extend( [rec['mblog'] for rec in jd['data']['cards'] if rec.get('mblog')] )
     df = pandas.DataFrame(articles)
     print(len(df))
-    print(df)
-    for a in range(1,6):
-        for b in range(1,62):
-            print(a + '_' + b)
+    print(df.to_html(classes='tbstyle'))
+#     for a in range(1,6):
+#         for b in range(1,62):
+#             print(a + '_' + b)
     return '<font color="red">hello girl</font>'
 
 
