@@ -1,7 +1,10 @@
 import sys
-
 import requests
 import pandas
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+import plotly.graph_objs as go
 
 # res = requests.get('https://m.weibo.cn/api/container/getIndex?containerid=231522type%3D1%26q%3D%23%E9%A6%99%E5%A5%88%E5%84%BF%23&page_type=searchall&page=3')
 # jd = res.json()
@@ -18,5 +21,20 @@ df = pandas.DataFrame(articles)
 print(len(df))
 df['text']
 #df.to_csv(r'caroltest.csv',index=False)
+
+########### Initiate the app
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
+app.title=tabtitle
+
+########### Set up the layout
+app.layout = html.Div(children=[
+    html.H3(df)]
+)
+
+if __name__ == '__main__':
+    app.run_server()
+
 print("done for the carol testing!!!!!!")
 
