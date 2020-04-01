@@ -20,6 +20,6 @@ def hello_world():
     df = pandas.DataFrame(articles)
     print(len(df))
     print(jd)
-    return 'Hello, World!'
+    return df.to_string()
 
 
