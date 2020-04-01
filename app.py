@@ -23,6 +23,8 @@ def hello_world():
 #     for a in range(1,6):
 #         for b in range(1,62):
 #             print(a + '_' + b)
+    for a in range(1,7):
+        print(df(:,['id','text']))
     return '<div>' + df.to_html(classes='tbstyle') + '</div>'
 
 
