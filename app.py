@@ -81,7 +81,7 @@ app.title=tabtitle
 app.layout = html.Div([
     html.H1('Hello Carol'),
     html.Div([
-        html.P(df.to_string()),
+        html.P('Hey'),
         html.P('You are the best!!')
     ])
 ])
