@@ -18,3 +18,6 @@ df = pandas.DataFrame(articles)
 print(len(df))
 df.to_csv(r'caroltest.csv',index=False)
 print("done for the carol testing!!!!")
+
+heroku pg:psql --app amazing-wetland-1234 DATABASE
+\COPY users TO '~/user_export.csv' WITH (FORMAT csv, DELIMITER ',',  HEADER true);
