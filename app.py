@@ -67,7 +67,7 @@ app.title=tabtitle
 
 ########### Set up the layout
 app.layout = html.Div(children=[
-    html.H1(df[0]),
+    html.H1(myheading),
     dcc.Graph(
         id='flyingdog',
         figure=beer_fig
@@ -81,5 +81,4 @@ app.layout = html.Div(children=[
 if __name__ == '__main__':
     app.run_server()
 
-print("done for the carol testing!!!!!!")
 
