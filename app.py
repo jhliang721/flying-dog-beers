@@ -20,8 +20,8 @@ def hello_world():
     df = pandas.DataFrame(articles)
     print(len(df))
     print(df)
-    for a in range(0,6):
-        for b in range(0,62):
+    for a in range(1,6):
+        for b in range(1,62):
             print(df[a][b])
     return "done~"
 
