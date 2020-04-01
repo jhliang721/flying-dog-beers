@@ -20,8 +20,3 @@ df['text']
 #df.to_csv(r'caroltest.csv',index=False)
 print("done for the carol testing!!!!!!")
 
-from flask import Flask
-app = Flask(__name__)
-@app.route('/')
-def hello_world():
-  return df
