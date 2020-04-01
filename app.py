@@ -19,7 +19,7 @@ for i in range(1,2):
     articles.extend( [rec['mblog'] for rec in jd['data']['cards'] if rec.get('mblog')] )
 df = pandas.DataFrame(articles)
 print(len(df))
-df['text']
+# df['text']
 #df.to_csv(r'caroltest.csv',index=False)
 
 # ########### Define your variables
@@ -66,8 +66,8 @@ server = app.server
 app.title=tabtitle
 
 ########### Set up the layout
-app.layout = html.Div(children=[
-    html.H3(df('text'))
+# app.layout = html.Div(children=[
+#     html.H1(myheading),
 #     dcc.Graph(
 #         id='flyingdog',
 #         figure=beer_fig
@@ -77,6 +77,14 @@ app.layout = html.Div(children=[
 #     html.A('Data Source', href=sourceurl),
     ]
 )
+
+app.layout = html.Div([
+    html.H1('Hello Carol'),
+    html.Div([
+        html.P(df.to_string()),
+        html.P('You are the best!!')
+    ])
+])
 
 if __name__ == '__main__':
     app.run_server()
