@@ -21,12 +21,13 @@ app = Flask(__name__)
     df = pandas.DataFrame(articles)
     print(len(df))
     a=len(df)
-    pandas.set_option('display.max_columns', None)
-    pandas.DataFrame({'text':[longString]})
+
 #    print(df.to_html(classes='tbstyle'))
 #     for a in range(1,6):
 #         for b in range(1,62):
 #             print(a + '_' + b)
+    pandas.set_option('max_colwidth',200)
+    pandas.DataFrame(df)
     print(df.loc[1:a, 'id': 'text'])
     return '<div>' + df.to_html(classes='tbstyle') + '</div>'
 
