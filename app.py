@@ -11,8 +11,7 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
-pandas.set_option('max_colwidth',500)
-pandas.DataFrame({'text':[longString]})
+
     def testweibocrawling():
     articles = []
     for i in range(1,10):
@@ -22,6 +21,8 @@ pandas.DataFrame({'text':[longString]})
     df = pandas.DataFrame(articles)
     print(len(df))
     a=len(df)
+    pandas.set_option('display.max_columns', None)
+    pandas.DataFrame({'text':[longString]})
 #    print(df.to_html(classes='tbstyle'))
 #     for a in range(1,6):
 #         for b in range(1,62):
