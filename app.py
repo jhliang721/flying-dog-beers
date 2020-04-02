@@ -24,5 +24,6 @@ def testweibocrawling():
     pandas.set_option('max_colwidth',500)
     pandas.DataFrame(df)
     print(df.loc[1:a, ['id','text']])
-    return '<div>' + df.to_html(classes='tbstyle') + '</div>'
+    df1=df.loc[1:a, ['id','text']]
+    return '<div>' + df1.to_html(classes='tbstyle') + '</div>'
 
