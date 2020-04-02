@@ -4,6 +4,7 @@ import pandas
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+import numpy
 import plotly.graph_objs as go
 
 from flask import Flask
@@ -22,8 +23,6 @@ def testweibocrawling():
     a=len(df)
     pandas.set_option('max_colwidth',500)
     pandas.DataFrame(df)
-    print(df.loc[1:a, 'id': 'text'])
-    df1=df.loc[1:a, 'id': 'text']
-    return '<div>' + df1.to_html(classes='tbstyle') + '</div>'
-
+    print(df.loc[1:a, ['id','text']])
+    return '<div>' + df.to_html(classes='tbstyle') + '</div>'
 
