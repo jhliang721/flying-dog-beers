@@ -42,7 +42,7 @@ def weibo_api_crawling():
                 item["comments_count"] = weibo_content["mblog"]["comments_count"]
                 item["reposts_count"] = weibo_content["mblog"]["reposts_count"]
                 item["attitudes_count"] = weibo_content["mblog"]["attitudes_count"]
-                print(item)
+                return item
     #             write into json or csv etc
     #             with open(file="WeiboResult.json",mode = "a+", encoding="utf-8") as f:
     #                  f.write(json.dumps(item))
