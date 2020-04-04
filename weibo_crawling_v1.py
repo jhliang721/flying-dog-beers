@@ -33,19 +33,19 @@ def weibo_api_crawling():
     
     #解析数据
     def crawl_data(res_json):
-        f res_json.get["data"]:
-        for weibo_content in res_json["data"]["cards"]:
-            item=dict()
-            item["id"] = item["mblog"]["id"]
-            item["user_name] = weibo_content["mblog"]["user"]["screen_name"]
-            item["text]=PyQuery(weibo_content["mblog"]["text"]).text()
-            item["comments_count] = weibo_content["mblog"]["comments_count"]
-            item["reposts_count] = weibo_content["mblog"]["reposts_count"]
-            item["attitudes_count] = weibo_content["mblog"]["attitudes_count"]
-            print(item)
-#             write into json or csv etc
-#             with open(file="WeiboResult.json",mode = "a+", encoding="utf-8") as f:
-#                  f.write(json.dumps(item))
+        if res_json.get["data"]:
+            for weibo_content in res_json["data"]["cards"]:
+                item=dict()
+                item["id"] = item["mblog"]["id"]
+                item["user_name] = weibo_content["mblog"]["user"]["screen_name"]
+                item["text]=PyQuery(weibo_content["mblog"]["text"]).text()
+                item["comments_count] = weibo_content["mblog"]["comments_count"]
+                item["reposts_count] = weibo_content["mblog"]["reposts_count"]
+                item["attitudes_count] = weibo_content["mblog"]["attitudes_count"]
+                print(item)
+    #             write into json or csv etc
+    #             with open(file="WeiboResult.json",mode = "a+", encoding="utf-8") as f:
+    #                  f.write(json.dumps(item))
     
     def main():
         #从1-4页，执行请求，获取数据，解析、打印数据
