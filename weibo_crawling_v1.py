@@ -43,20 +43,20 @@ def weibo_api_crawling():
                 item["reposts_count"] = weibo_content["mblog"]["reposts_count"]
                 item["attitudes_count"] = weibo_content["mblog"]["attitudes_count"]
                 print(item)
-#         return item
+        return item
 
     
     def main():
         #从1-5页，执行请求，获取数据，解析、打印数据
         for page in range (1,6):
             res_json = get_page(page)
-            crawl_data(res_json)
-#             result.extend = crawl_data(res_json)
-#         return result
+#             crawl_data(res_json)
+            result.extend = crawl_data(res_json)
+        return result
             
-#     if __name__=='__main__':
-#     show_result = main()
-    main()
+    if __name__=='__main__':
+        show_result = main()
+#     main()
     
-#    return '<div>' + show_result + '</div>'
-    return 'Done!'
+    return '<div>' + show_result + '</div>'
+#     return 'Done!'
