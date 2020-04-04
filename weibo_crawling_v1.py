@@ -32,7 +32,7 @@ def weibo_api_crawling():
     
     #解析数据
     def crawl_data(res_json):
-        if res_json.get["data"]:
+        if res_json.get("data"):
             for weibo_content in res_json["data"]["cards"]:
                 crawl_data(weibo_content)
                 item=dict()
