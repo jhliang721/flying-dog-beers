@@ -54,7 +54,7 @@ def weibo_api_crawling():
             result.extend = crawl_data(res_json)
         return result
             
-    if __name__=='__main__':
-        show_result = main()
+#     if __name__=='__main__':
+    show_result = main()
     
-    return '<div>' + show_result.to_html(classes='tbstyle') + '</div>'
+    return '<div>' + show_result + '</div>'
