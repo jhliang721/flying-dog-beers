@@ -9,9 +9,9 @@ import plotly.graph_objs as go
 
 from flask import Flask
     
-app1 = Flask(__name__)
+app = Flask(__name__)
 
-@app1.route('/')
+@app.route('/')
 def testweibocrawling():
     articles = []
     for i in range(1,15):
