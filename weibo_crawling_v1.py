@@ -5,7 +5,6 @@ import pandas
 import numpy
 import plotly.graph_objs as go
 import pprint
-import json
 from urllib.parse import urlencode
 from flask import Flask
 from pyquery import PyQuery
@@ -42,10 +41,8 @@ def weibo_api_crawling():
                 item["comments_count"] = weibo_content["mblog"]["comments_count"]
                 item["reposts_count"] = weibo_content["mblog"]["reposts_count"]
                 item["attitudes_count"] = weibo_content["mblog"]["attitudes_count"]
-                return item
-    #             write into json or csv etc
-    #             with open(file="WeiboResult.json",mode = "a+", encoding="utf-8") as f:
-    #                  f.write(json.dumps(item))
+        return item
+
     
     def main():
         #从1-4页，执行请求，获取数据，解析、打印数据
