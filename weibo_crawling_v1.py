@@ -33,10 +33,11 @@ def weibo_api_crawling():
     #解析数据
     def crawl_data(res_json):
         print('^^^^^^^^^^^')
+        item=dict()
         if res_json.get("data"):
             for weibo_content in res_json["data"]["cards"]:
                 crawl_data(weibo_content)
-                item=dict()
+#                 item=dict()
                 item["id"] = weibo_content["mblog"]["id"]
                 item["user_name"] = weibo_content["mblog"]["user"]["screen_name"]
                 item["text"]=PyQuery(weibo_content["mblog"]["text"]).text()
@@ -45,7 +46,7 @@ def weibo_api_crawling():
                 item["attitudes_count"] = weibo_content["mblog"]["attitudes_count"]
                 print(item)
                 print("################")
-        return item.get('id'),item.get('user_name'),item.get('text'),item.get('comments_count'),item.get('reposts_count'),item.get('attitudes_count')
+        return item
 
     def main():
         #从1-5页，执行请求，获取数据，解析、打印数据
