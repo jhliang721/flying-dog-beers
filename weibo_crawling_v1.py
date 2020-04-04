@@ -7,9 +7,9 @@ from urllib.parse import urlencoding
 
 from flask import Flask
     
-weibo_api_crawling = Flask(__name__)
+weibo_crawling_v1 = Flask(__name__)
 
-@weibo_api_crawling.route('/')
+@weibo_crawling_v1.route('/')
 def weibo_api_crawling():
     # gary's weibo account
     # https://m.weibo.cn/api/container/getIndex?uid=1764276651&luicode=10000011&lfid=100103type%3D1%26q%3Dkawaaaaaaaa&containerid=1076031764276651&since_id=4079234580721927
