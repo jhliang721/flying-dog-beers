@@ -28,3 +28,4 @@ traitlets==4.3.2
 Werkzeug==0.15.4
 requests==2.18.1
 openpyxl==3.0.3
+pyquery==1.4.1
