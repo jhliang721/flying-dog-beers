@@ -52,11 +52,11 @@ def weibo_api_crawling():
             res_json = get_page(page)
 #             crawl_data(res_json)
             result.extend = crawl_data(res_json)
-            print(result)
         return result
             
     if __name__=='__main__':
         show_result = main()
+        print(show_result)
 #     main()
     
 #     return '<div>' + show_result + '</div>'
