@@ -16,6 +16,7 @@ def weibo_api_crawling():
     base_url='https://m.weibo.cn/api/container/getIndex?'
     
     #请求的方法
+    #根据页面获取数据
     def get_page(page):
         weiboaccount = {
             "containerid":"1076031764276651",
@@ -23,8 +24,20 @@ def weibo_api_crawling():
             "page":page
         }
         response=requests.get(base_url + urlencode(weiboaccount))
-        print(urlencode(weiboaccount))
-        print(response.json())
-        pprint.pprint(response.json())
-    get_page(4)
-    return 'Finish'
+#         print(urlencode(weiboaccount))
+#         print(response.json())
+        return response.json()
+    
+    #解析数据
+    def print_data(res_json):  
+        print(res_json)
+    
+    def main():
+        #从1-10页，执行请求，获取数据，解析、打印数据
+        for page in range (1,5):
+            res_json=get_page(page)
+            print_data(res_json)
+    if __name__=='__main__':
+        main()
+    
+    return 'Finish！'
