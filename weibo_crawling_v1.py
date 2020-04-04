@@ -34,8 +34,9 @@ def weibo_api_crawling():
     def crawl_data(res_json):
         if res_json.get["data"]:
             for weibo_content in res_json["data"]["cards"]:
+                crawl_data(weibo_content)
                 item=dict()
-                item["id"] = item["mblog"]["id"]
+                item["id"] = weibo_content["mblog"]["id"]
                 item["user_name"] = weibo_content["mblog"]["user"]["screen_name"]
                 item["text"]=PyQuery(weibo_content["mblog"]["text"]).text()
                 item["comments_count"] = weibo_content["mblog"]["comments_count"]
