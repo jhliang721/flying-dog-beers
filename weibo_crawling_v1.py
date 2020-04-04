@@ -32,6 +32,7 @@ def weibo_api_crawling():
     
     #解析数据
     def crawl_data(res_json):
+        print('^^^^^^^^^^^')
         if res_json.get("data"):
             for weibo_content in res_json["data"]["cards"]:
                 crawl_data(weibo_content)
@@ -46,12 +47,12 @@ def weibo_api_crawling():
                 print("################")
         return item
 
-    
     def main():
         #从1-5页，执行请求，获取数据，解析、打印数据
         for page in range (1,6):
             res_json = get_page(page)
 #             crawl_data(res_json)
+            print('$$$$$$')
             result.extend = crawl_data(res_json)
         print(result)
         print('=================================')
