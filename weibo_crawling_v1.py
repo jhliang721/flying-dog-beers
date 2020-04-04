@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 import sys
 import requests
 import pandas
@@ -6,6 +7,7 @@ import plotly.graph_objs as go
 import pprint
 from urllib.parse import urlencode
 from flask import Flask
+from pyquery import PyQuery
     
 app = Flask(__name__)
 
@@ -30,7 +32,14 @@ def weibo_api_crawling():
     
     #解析数据
     def print_data(res_json):  
-        print(res_json)
+        for item in res_json["data"]["cards"]:
+            id=item["mblog"]["id"]
+            user_name=item["mblog"]["user"]["screen_name"]
+            text=PyQuery(item["mblog"]["text"]).text()
+            comments_count=["mblog"]["comments_count"]
+            reposts_count=["mblog"]["reposts_count"]
+            attitudes_count=["mblog"]["attitudes_count"]
+            print(id,user_name,text, comments_count,reposts_count,attitudes_count)
     
     def main():
         #从1-10页，执行请求，获取数据，解析、打印数据
@@ -40,4 +49,4 @@ def weibo_api_crawling():
     if __name__=='__main__':
         main()
     
-    return 'Finish！'
+    return 'Finish!'
