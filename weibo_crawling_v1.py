@@ -20,3 +20,4 @@ def weibo_api_crawling():
         "page":4
     }
     print(urlencode(weiboaccount))
+    return 'Finish'
