@@ -50,7 +50,7 @@ def weibo_api_crawling():
 
     def main():
         #从1-5页，执行请求，获取数据，解析、打印数据
-        result=dirt()
+        result=dict()
         for page in range (1,6):
             res_json = get_page(page)
 #             crawl_data(res_json)
@@ -65,7 +65,7 @@ def weibo_api_crawling():
 #         print(show_result)
 #         print('+++++++++++++++++++++++++++')
     
-    show_result=dirt()
+    show_result=dict()
     show_result=main()
     print(show_result)
     print('+++++++++++++++++++++++++++')
