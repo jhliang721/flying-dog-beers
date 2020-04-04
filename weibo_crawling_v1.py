@@ -3,7 +3,7 @@ import requests
 import pandas
 import numpy
 import plotly.graph_objs as go
-from urllib import urlencode
+from urllib.parse import urlencode
 
 from flask import Flask
     
