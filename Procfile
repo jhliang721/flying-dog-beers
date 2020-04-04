@@ -1,1 +1,1 @@
-web: gunicorn app:weibo_crawling_v1
+web: gunicorn weibo_crawling_v1:app
