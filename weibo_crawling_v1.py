@@ -31,7 +31,7 @@ def weibo_api_crawling():
         return response.json()
     
     #解析数据
-    def print_data(res_json):  
+    def crawl_data(res_json):  
         for item in res_json["data"]["cards"]:
             id=item["mblog"]["id"]
             user_name=item["mblog"]["user"]["screen_name"]
@@ -42,10 +42,10 @@ def weibo_api_crawling():
             print(id,user_name,text, comments_count,reposts_count,attitudes_count)
     
     def main():
-        #从1-10页，执行请求，获取数据，解析、打印数据
+        #从1-4页，执行请求，获取数据，解析、打印数据
         for page in range (1,5):
             res_json=get_page(page)
-            print_data(res_json)
+            crawl_data(res_json)
     if __name__=='__main__':
         main()
     
