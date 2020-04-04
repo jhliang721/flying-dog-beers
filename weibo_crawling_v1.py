@@ -52,7 +52,7 @@ def weibo_api_crawling():
         for page in range (1,5):
             res_json = get_page(page)
             result.extend = crawl_data(res_json)
-        return = result
+        return result
             
     if __name__=='__main__':
         show_result = main()
