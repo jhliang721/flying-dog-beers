@@ -31,22 +31,25 @@ def weibo_api_crawling():
         return response.json()
     
     #解析数据
-    def crawl_data(res_json):  
-        for item in res_json["data"]["cards"]:
-            id=item["mblog"]["id"]
-            user_name=item["mblog"]["user"]["screen_name"]
-            text=PyQuery(item["mblog"]["text"]).text()
-            comments_count=["mblog"]["comments_count"]
-            reposts_count=["mblog"]["reposts_count"]
-            attitudes_count=["mblog"]["attitudes_count"]
-            print(id,user_name,text, comments_count,reposts_count,attitudes_count)
+    def crawl_data(res_json):
+        f res_json.get["data"]:
+        for weibo_content in res_json["data"]["cards"]:
+            item=dict()
+            item["id"]=item["mblog"]["id"]
+            item["user_name]=weibo_content["mblog"]["user"]["screen_name"]
+            item["text]=PyQuery(weibo_content["mblog"]["text"]).text()
+            item["comments_count]=weibo_content["mblog"]["comments_count"]
+            item["reposts_count]=weibo_content["mblog"]["reposts_count"]
+            item["attitudes_count]=weibo_content["mblog"]["attitudes_count"]
+            print(item)
     
     def main():
         #从1-4页，执行请求，获取数据，解析、打印数据
         for page in range (1,5):
             res_json=get_page(page)
             crawl_data(res_json)
+            
     if __name__=='__main__':
-        main()
+        result=main()
     
-    return 'Finish!'
+    return '<div>' + result.to_html(classes='tbstyle') + '</div>'
