@@ -51,9 +51,10 @@ def weibo_api_crawling():
         #从1-4页，执行请求，获取数据，解析、打印数据
         for page in range (1,5):
             res_json = get_page(page)
-            crawl_data(res_json)
+            result.extend = crawl_data(res_json)
+        return = result
             
     if __name__=='__main__':
-        result = main()
+        show_result = main()
     
-    return '<div>' + result.to_html(classes='tbstyle') + '</div>'
+    return '<div>' + show_result.to_html(classes='tbstyle') + '</div>'
