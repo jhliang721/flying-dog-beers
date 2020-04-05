@@ -72,12 +72,11 @@ def weibo_api_crawling():
         for page in range (1,6):
             res_json = get_page(page)
             result = crawl_data(res_json,num)
-#             print('第'+str(page)+'页内容如下：')
+            print('第'+str(page)+'页内容如下：')
 #             #每页最后一条微博copy到result:"
 #             result = crawl_data(res_json)
 #             print(result)
 #         #最后一页最后一条微博
-#         print(result)
         print(result)
         print('共'+str(num)+'条微博！')
         return result
