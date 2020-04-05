@@ -46,18 +46,22 @@ def weibo_api_crawling():
 #                 print(item)
 #         return item
         item=[[]*6]*1
-        newrow=[[]*6]*1
+        print(item)
         if res_json.get("data"):
             for weibo_content in res_json["data"]["cards"]:
                 crawl_data(weibo_content)
-                newrow[0][num] = weibo_content["mblog"]["id"]
-                newrow[1][num] = weibo_content["mblog"]["user"]["screen_name"]
-                newrow[2][num]=PyQuery(weibo_content["mblog"]["text"]).text()
-                newrow[3][num] = weibo_content["mblog"]["comments_count"]
-                newrow[4][num] = weibo_content["mblog"]["reposts_count"]
-                newrow[5][num] = weibo_content["mblog"]["attitudes_count"]
+                newrow=[[]*6]*1
+                newrow[0][0] = weibo_content["mblog"]["id"]
+                newrow[0][1] = weibo_content["mblog"]["user"]["screen_name"]
+                newrow[0][2]=PyQuery(weibo_content["mblog"]["text"]).text()
+                newrow[0][3] = weibo_content["mblog"]["comments_count"]
+                newrow[0][4] = weibo_content["mblog"]["reposts_count"]
+                newrow[0][5] = weibo_content["mblog"]["attitudes_count"]
+                print(newrow)
                 item=np.row_stack((item,newrow))
+                print(item)
                 num += 1
+                print(num)
         return item
 
     def main():
@@ -72,8 +76,8 @@ def weibo_api_crawling():
 #             print(result)
 #         #最后一页最后一条微博
 #         print(result)
-        print(num)
         print(result)
+        print('共'+str(num)+'条微博！')
         return result
             
 #     if __name__=='__main__':
