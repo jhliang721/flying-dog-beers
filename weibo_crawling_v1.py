@@ -45,12 +45,12 @@ def weibo_api_crawling():
 #                 print(item['id'],item['user_name'],item['text'],item['comments_count'],item['reposts_count'],item['attitudes_count'])
 #                 print(item)
 #         return item
-        item=[[]*6]*1
+        item=[[0]*6]*1
         print(item)
         if res_json.get("data"):
             for weibo_content in res_json["data"]["cards"]:
                 crawl_data(weibo_content,num)
-                newrow=[[]*6]*1
+                newrow=[[0]*6]*1
                 print(newrow)
                 print(weibo_content["mblog"]["id"])
                 newrow[0][0] = weibo_content["mblog"]["id"]
