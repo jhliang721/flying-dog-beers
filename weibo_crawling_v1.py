@@ -49,7 +49,7 @@ def weibo_api_crawling():
         print(item)
         if res_json.get("data"):
             for weibo_content in res_json["data"]["cards"]:
-                crawl_data(weibo_content)
+                crawl_data(weibo_content,num)
                 newrow=[[]*6]*1
                 newrow[0][0] = weibo_content["mblog"]["id"]
                 newrow[0][1] = weibo_content["mblog"]["user"]["screen_name"]
