@@ -45,9 +45,9 @@ def weibo_api_crawling():
 #                 print(item['id'],item['user_name'],item['text'],item['comments_count'],item['reposts_count'],item['attitudes_count'])
 #                 print(item)
 #         return item
-        global num
         item=[[0]*6]*1
         print(item)
+        num=0
         if res_json.get("data"):
             num = num + 1
             print('现在开始处理第'+str(num)+'条微博数据解析！')
@@ -68,7 +68,6 @@ def weibo_api_crawling():
                 print('已经完成第'+str(num)+'条微博数据解析！')
         return item
 
-    num=0
     
     def main():
         #从1-5页，执行请求，获取数据，解析、打印数据
@@ -81,7 +80,6 @@ def weibo_api_crawling():
 #             print(result)
 #         #最后一页最后一条微博
         print(result)
-        print('共'+str(num)+'条微博！')
         return result
             
 #     if __name__=='__main__':
