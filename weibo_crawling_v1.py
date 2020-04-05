@@ -78,7 +78,7 @@ def weibo_api_crawling():
             
 #     if __name__=='__main__':
 #         main()    
-    show_result = pd.DataFrame(main(5))
+    show_result = pd.DataFrame(main(10))
     
     return '<div>' + show_result.to_html(classes='tbstyle') + '</div>'
 #     return '完成啦啦啦啦啦啦啦!'
