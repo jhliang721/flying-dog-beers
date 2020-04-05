@@ -65,10 +65,10 @@ def weibo_api_crawling():
         return item
 
     
-    def main():
-        #从1-2页，执行请求，获取数据，解析、打印数据
+    def main(i):
+        #从1-i页，执行请求，获取数据，解析、打印数据
         result=[[0]*6]*1
-        for page in range (1,3):
+        for page in range (1,i+1):
             print('现在开始处理第'+str(page)+'页微博数据解析！')
             res_json = get_page(page)
             result=np.append(result,crawl_data(res_json),axis=0)
@@ -78,7 +78,7 @@ def weibo_api_crawling():
             
 #     if __name__=='__main__':
 #         main()    
-    show_result = pd.DataFrame(main())
+    show_result = pd.DataFrame(main(5))
     
     return '<div>' + show_result.to_html(classes='tbstyle') + '</div>'
 #     return '完成啦啦啦啦啦啦啦!'
