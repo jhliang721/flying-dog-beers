@@ -44,8 +44,9 @@ def weibo_api_crawling():
                 item["comments_count"] = weibo_content["mblog"]["comments_count"]
                 item["reposts_count"] = weibo_content["mblog"]["reposts_count"]
                 item["attitudes_count"] = weibo_content["mblog"]["attitudes_count"]
+                print(item['user_name'],item['text'])
                 print(item)
-                print("################")
+                print('#####################')
         return item
 
     def main():
