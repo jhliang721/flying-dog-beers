@@ -59,7 +59,7 @@ def weibo_api_crawling():
                 newrow[0][3] = weibo_content["mblog"]["comments_count"]
                 newrow[0][4] = weibo_content["mblog"]["reposts_count"]
                 newrow[0][5] = weibo_content["mblog"]["attitudes_count"]
-                item=np.row_stack((item,newrow))
+                item=np.append(item,newrow,axis=0)
                 print('已经完成第'+str(num)+'条微博数据解析！')
         return item
 
@@ -70,7 +70,7 @@ def weibo_api_crawling():
         for page in range (1,3):
             print('现在开始处理第'+str(page)+'页微博数据解析！')
             res_json = get_page(page)
-            result=np.row_stack(result,crawl_data(res_json))
+            result=np.append(result,crawl_data(res_json),axis=0)
             print(result)            
         return result
             
