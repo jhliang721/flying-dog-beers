@@ -80,6 +80,7 @@ def weibo_api_crawling():
 #     if __name__=='__main__':
 #         main()    
     show_result = pd.DataFrame(main(20))
+    show_result.columns = ['id','username','weibo_content','no. of comments','no. of reposts','no. of likes']
     
     return '<div>' + show_result.to_html(classes='tbstyle') + '</div>'
 #     return '完成啦啦啦啦啦啦啦!'
