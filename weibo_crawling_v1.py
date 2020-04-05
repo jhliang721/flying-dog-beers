@@ -31,42 +31,54 @@ def weibo_api_crawling():
         return response.json()
     
     #解析数据
-    def crawl_data(res_json):
-        item=dict()
+    def crawl_data(res_json,num):
+#         item=dict()
+#         if res_json.get("data"):
+#             for weibo_content in res_json["data"]["cards"]:
+#                 crawl_data(weibo_content)
+#                 item["id"] = weibo_content["mblog"]["id"]
+#                 item["user_name"] = weibo_content["mblog"]["user"]["screen_name"]
+#                 item["text"]=PyQuery(weibo_content["mblog"]["text"]).text()
+#                 item["comments_count"] = weibo_content["mblog"]["comments_count"]
+#                 item["reposts_count"] = weibo_content["mblog"]["reposts_count"]
+#                 item["attitudes_count"] = weibo_content["mblog"]["attitudes_count"]
+#                 print(item['id'],item['user_name'],item['text'],item['comments_count'],item['reposts_count'],item['attitudes_count'])
+#                 print(item)
+#         return item
+        item=[[]*6]*1
+        newrow=[[]*6]*1
         if res_json.get("data"):
             for weibo_content in res_json["data"]["cards"]:
                 crawl_data(weibo_content)
-                item["id"] = weibo_content["mblog"]["id"]
-                item["user_name"] = weibo_content["mblog"]["user"]["screen_name"]
-                item["text"]=PyQuery(weibo_content["mblog"]["text"]).text()
-                item["comments_count"] = weibo_content["mblog"]["comments_count"]
-                item["reposts_count"] = weibo_content["mblog"]["reposts_count"]
-                item["attitudes_count"] = weibo_content["mblog"]["attitudes_count"]
-#                 print(item['id'],item['user_name'],item['text'],item['comments_count'],item['reposts_count'],item['attitudes_count'])
-                print(item)
+                newrow[0][num] = weibo_content["mblog"]["id"]
+                newrow[1][num] = weibo_content["mblog"]["user"]["screen_name"]
+                newrow[2][num]=PyQuery(weibo_content["mblog"]["text"]).text()
+                newrow[3][num] = weibo_content["mblog"]["comments_count"]
+                newrow[4][num] = weibo_content["mblog"]["reposts_count"]
+                newrow[5][num] = weibo_content["mblog"]["attitudes_count"]
+                item=np.row_stack((item,newrow))
+                num += 1
         return item
 
     def main():
         #从1-5页，执行请求，获取数据，解析、打印数据
-        result=dict()
+        num=1
         for page in range (1,6):
             res_json = get_page(page)
-#             crawl_data(res_json)
-            print('第'+str(page)+'页内容如下：')
-            #每页最后一条微博copy到result:"
-            result = crawl_data(res_json)
-            print(result)
-        #最后一页最后一条微博
+            result = crawl_data(res_json,num)
+#             print('第'+str(page)+'页内容如下：')
+#             #每页最后一条微博copy到result:"
+#             result = crawl_data(res_json)
+#             print(result)
+#         #最后一页最后一条微博
+#         print(result)
+        print(num)
         print(result)
         return result
             
 #     if __name__=='__main__':
-#         show_result = main()
-#         print(show_result)
-    
-    show_result=dict()
-    show_result=main()
-
+#         main()    
+    main()
     
 #     return '<div>' + show_result + '</div>'
     return 'Done!'
