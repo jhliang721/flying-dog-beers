@@ -61,6 +61,7 @@ def weibo_api_crawling():
                 newrow[0][5] = weibo_content["mblog"]["attitudes_count"]
                 item=np.append(item,newrow,axis=0)
                 print('已经完成第'+str(num)+'条微博数据解析！')
+        item = np.delete(item,0,0)
         return item
 
     
@@ -72,6 +73,7 @@ def weibo_api_crawling():
             res_json = get_page(page)
             result=np.append(result,crawl_data(res_json),axis=0)
             print(result)            
+        result = np.delete(result,0,0)
         return result
             
 #     if __name__=='__main__':
