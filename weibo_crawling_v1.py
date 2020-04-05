@@ -31,7 +31,7 @@ def weibo_api_crawling():
         return response.json()
     
     #解析数据
-    def crawl_data(res_json,num):
+    def crawl_data(res_json):
 #         item=dict()
 #         if res_json.get("data"):
 #             for weibo_content in res_json["data"]["cards"]:
@@ -45,11 +45,12 @@ def weibo_api_crawling():
 #                 print(item['id'],item['user_name'],item['text'],item['comments_count'],item['reposts_count'],item['attitudes_count'])
 #                 print(item)
 #         return item
+        global num
         item=[[0]*6]*1
         print(item)
         if res_json.get("data"):
             for weibo_content in res_json["data"]["cards"]:
-                crawl_data(weibo_content,num)
+                crawl_data(weibo_content)
                 newrow=[[0]*6]*1
                 print(newrow)
                 print(weibo_content["mblog"]["id"])
@@ -66,12 +67,13 @@ def weibo_api_crawling():
                 print(num)
         return item
 
+    num=1
     def main():
         #从1-5页，执行请求，获取数据，解析、打印数据
-        num=1
+        global num
         for page in range (1,6):
             res_json = get_page(page)
-            result = crawl_data(res_json,num)
+            result = crawl_data(res_json)
             print('第'+str(page)+'页内容如下：')
 #             #每页最后一条微博copy到result:"
 #             result = crawl_data(res_json)
