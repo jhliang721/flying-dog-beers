@@ -51,6 +51,8 @@ def weibo_api_crawling():
             for weibo_content in res_json["data"]["cards"]:
                 crawl_data(weibo_content,num)
                 newrow=[[]*6]*1
+                print(newrow)
+                print(weibo_content["mblog"]["id"])
                 newrow[0][0] = weibo_content["mblog"]["id"]
                 newrow[0][1] = weibo_content["mblog"]["user"]["screen_name"]
                 newrow[0][2]=PyQuery(weibo_content["mblog"]["text"]).text()
