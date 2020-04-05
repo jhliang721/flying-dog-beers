@@ -32,21 +32,18 @@ def weibo_api_crawling():
     
     #解析数据
     def crawl_data(res_json):
-        print('^^^^^^^^^^^')
         item=dict()
         if res_json.get("data"):
             for weibo_content in res_json["data"]["cards"]:
                 crawl_data(weibo_content)
-#                 item=dict()
                 item["id"] = weibo_content["mblog"]["id"]
                 item["user_name"] = weibo_content["mblog"]["user"]["screen_name"]
                 item["text"]=PyQuery(weibo_content["mblog"]["text"]).text()
                 item["comments_count"] = weibo_content["mblog"]["comments_count"]
                 item["reposts_count"] = weibo_content["mblog"]["reposts_count"]
                 item["attitudes_count"] = weibo_content["mblog"]["attitudes_count"]
-                print(item['user_name'],item['text'])
+#                 print(item['id'],item['user_name'],item['text'],item['comments_count'],item['reposts_count'],item['attitudes_count'])
                 print(item)
-                print('#####################')
         return item
 
     def main():
@@ -55,21 +52,21 @@ def weibo_api_crawling():
         for page in range (1,6):
             res_json = get_page(page)
 #             crawl_data(res_json)
-            print('$$$$$$')
+            print('第'+page+'页内容如下：')
+            #每页最后一条微博copy到result:"
             result = crawl_data(res_json)
+            print(result)
+        #最后一页最后一条微博
         print(result)
-        print('=================================')
         return result
             
 #     if __name__=='__main__':
 #         show_result = main()
 #         print(show_result)
-#         print('+++++++++++++++++++++++++++')
     
     show_result=dict()
     show_result=main()
-    print(show_result)
-    print('+++++++++++++++++++++++++++')
+
     
 #     return '<div>' + show_result + '</div>'
     return 'Done!'
