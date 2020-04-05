@@ -56,7 +56,7 @@ def weibo_api_crawling():
             res_json = get_page(page)
 #             crawl_data(res_json)
             print('$$$$$$')
-            result.append(crawl_data(res_json))
+            result = crawl_data(res_json)
         print(result)
         print('=================================')
         return result
