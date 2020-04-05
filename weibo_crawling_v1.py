@@ -2,7 +2,7 @@
 import sys
 import requests
 import pandas
-import numpy
+import numpy as np
 import plotly.graph_objs as go
 import pprint
 from urllib.parse import urlencode
