@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 import sys
 import requests
-import pandas
+import pandas as pd
 import numpy as np
 import plotly.graph_objs as go
 import pprint
@@ -76,7 +76,7 @@ def weibo_api_crawling():
             
 #     if __name__=='__main__':
 #         main()    
-    show_result = pandas.dataframe(main())
+    show_result = pd.DataFrame(main())
     
     return '<div>' + show_result.to_html(classes='tbstyle') + '</div>'
 #     return '完成啦啦啦啦啦啦啦!'
