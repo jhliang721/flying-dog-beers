@@ -49,6 +49,8 @@ def weibo_api_crawling():
         item=[[0]*6]*1
         print(item)
         if res_json.get("data"):
+            num = num + 1
+            print('现在开始处理第'+str(num)+'条微博数据解析！')
             for weibo_content in res_json["data"]["cards"]:
                 crawl_data(weibo_content)
                 newrow=[[0]*6]*1
@@ -63,14 +65,13 @@ def weibo_api_crawling():
                 print(newrow)
                 item=np.row_stack((item,newrow))
                 print(item)
-                num += 1
-                print(num)
+                print('已经完成第'+str(num)+'条微博数据解析！')
         return item
 
-    num=1
+    num=0
+    
     def main():
         #从1-5页，执行请求，获取数据，解析、打印数据
-        global num
         for page in range (1,6):
             res_json = get_page(page)
             result = crawl_data(res_json)
