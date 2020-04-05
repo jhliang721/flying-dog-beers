@@ -76,7 +76,7 @@ def weibo_api_crawling():
             
 #     if __name__=='__main__':
 #         main()    
-    main()
+    showr_result = main()
     
-#     return '<div>' + show_result + '</div>'
-    return '完成啦啦啦啦啦啦啦!'
+    return '<div>' + show_result + '</div>'
+#     return '完成啦啦啦啦啦啦啦!'
